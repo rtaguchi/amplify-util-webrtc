@@ -1,0 +1,12 @@
+{
+    "name": "webrtc",
+    "type": "util",
+    "commands": [
+        "add",
+        "remove"
+    ],
+    "eventHandlers": [
+        "PrePush",
+        "PostPush"
+    ]
+}

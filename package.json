@@ -1,0 +1,44 @@
+{
+  "name": "amplify-util-webrtc",
+  "version": "0.0.1",
+  "description": "Plugin for Amplify to add support for Kinesis Video Stream WebRTC.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node scripts/post-install.js",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "author": "rtaguchi",
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtaguchi/amplify-util-webrtc.git"
+  },
+  "keywords": [
+    "amplify",
+    "plugin",
+    "webrtc"
+  ],
+  "dependencies": {
+    "amplify-category-auth": "2.6.0",
+    "archiver": "^3.1.1",
+    "aws-sdk": "^2.580.0",
+    "chalk": "^2.4.2",
+    "ejs": "^2.7.1",
+    "eslint": "^5.16.0",
+    "fs-extra": "^7.0.0",
+    "ini": "^1.3.5",
+    "inquirer": "^6.5.0",
+    "mime-types": "^2.1.21",
+    "ora": "^4.0.3",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "bugs": {
+    "url": "https://github.com/rtaguchi/amplify-util-webrtc/issues"
+  },
+  "homepage": "https://github.com/rtaguchi/amplify-util-webrtc#readme"
+}

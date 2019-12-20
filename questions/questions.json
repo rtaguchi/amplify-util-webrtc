@@ -1,0 +1,24 @@
+{
+    "add": [
+        {
+            "key": "channelName",
+            "question": "Provide a friendly name for your signaling channel:",
+            "validation": {
+                "operator": "regex",
+                "value": "^[a-zA-Z0-9\\-]+$",
+                "onErrorMsg": "Resource name should be alphanumeric"
+            },
+            "required": true
+        },
+        {
+            "key": "ttl",
+            "question": "Specify TTL value of an existing signaling channnel: ",
+            "validation": {
+                "operator": "regex",
+                "value": "^([5-9]|[1-9][0-9]|1[0-1][0-9]|120)$",
+                "onErrorMsg": "You need to choose a number between 5 and 120"
+            },
+            "required": true
+        }
+    ]
+}
