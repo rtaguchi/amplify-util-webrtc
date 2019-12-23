@@ -6,6 +6,8 @@ async function run(context, args) {
   const paramDir = `${backendDir}/webrtc`;
   const localParamJson = `${paramDir}/onLocal.json`
   const cloudParamJson = `${paramDir}/onCloud.json`
+  let onLocal
+  let onCloud
 
   try {
     onLocal = fs.existsSync(localParamJson)
