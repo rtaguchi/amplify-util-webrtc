@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const chalk = require('chalk');
-const AWS = require('aws-sdk')
 const questions = require('../questions/questions.json');
 
 let projectMeta;
