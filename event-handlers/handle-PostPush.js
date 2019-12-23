@@ -51,8 +51,6 @@ async function run(context, args) {
 
 async function createWebRTC(context, localParam, cloudParamJson){
   const awsConfig = getAWSConfig(context)
-  const kinesisvideo = new AWS.KinesisVideo(awsConfig);
-  const iam = new AWS.IAM(awsConfig)
 
   try {
     const params = {
@@ -62,6 +60,7 @@ async function createWebRTC(context, localParam, cloudParamJson){
         MessageTtlSeconds: localParam.ttl
       }
     }
+    const kinesisvideo = new AWS.KinesisVideo(awsConfig);
     const kinesisRes = await kinesisvideo.createSignalingChannel(params).promise()
 
     const policyJson = {
@@ -83,13 +82,15 @@ async function createWebRTC(context, localParam, cloudParamJson){
       PolicyDocument: JSON.stringify(policyJson),
       PolicyName: localParam.channelName + '-policy'
     }
-    const createRes = await iam.createPolicy(createPolicyParams).promise()
+    const iamC = new AWS.IAM(awsConfig)
+    const createRes = await iamC.createPolicy(createPolicyParams).promise()
 
     const attachPolicyParams = {
       PolicyArn: createRes.Policy.Arn,
       RoleName: projectMeta.providers.awscloudformation.AuthRoleName
     }
-    await iam.attachRolePolicy(attachPolicyParams).promise()
+    const iamA = new AWS.IAM(awsConfig)
+    await iamA.attachRolePolicy(attachPolicyParams).promise()
 
     const cloudParam = {
       channelName: localParam.channelName,
